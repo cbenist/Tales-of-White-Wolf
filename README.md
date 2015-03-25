@@ -17,6 +17,11 @@ Coding Standards
 *@param parameter
 */
 
+BracketConfiguration->(bracket on same line){
+
+<-(not line breaked to next line)
+}
+
 public, private, protected attributes as appropriate
 }
 
