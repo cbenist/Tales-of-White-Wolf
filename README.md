@@ -17,9 +17,9 @@ Coding Standards
 *@param parameter
 */
 
-BracketConfiguration->(bracket on same line){
+BracketConfiguration{
 
-<-(not line breaked to next line)
+Open Bracket on same line as method, class name
 }
 
 public, private, protected attributes as appropriate
