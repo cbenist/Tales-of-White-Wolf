@@ -1,11 +1,8 @@
-package Character;
+package CharacterC;
 
 import java.util.ArrayList;
 
-/**
- * Created by Colin on 3/29/2015.
- */
-/*public class Character {
+public class CharacterC {
     private List<Item> inventory;
 
     private String characterName;
@@ -64,4 +61,4 @@ import java.util.ArrayList;
     public void setCharacterStrength(int characterStrength) {
         this.characterStrength = characterStrength;
     }
-}*/
+}
