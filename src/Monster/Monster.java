@@ -59,7 +59,8 @@ public class Monster
 		this.monsterDefeated=true;
         if(hasItem)
 		{
-			roomItemList.add(this.i);
+			//itemList.addItem(this.i);
+            //this.i = null;
             value=true;
 		}
         return value;
