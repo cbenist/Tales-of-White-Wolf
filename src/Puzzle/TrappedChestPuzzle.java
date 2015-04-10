@@ -1,3 +1,4 @@
+package Puzzle;
 import java.util.Random;
 
 public class TrappedChestPuzzle extends Puzzles {

@@ -1,3 +1,6 @@
+package Puzzle;
+import Puzzles;
+
 
 public class DecryptionPuzzle extends Puzzles {
 

@@ -1,3 +1,6 @@
+package Room;
+import Room;
+
 public class DungeonRoom extends Room{
 	
 	public int generateRoomMonster(int zone)

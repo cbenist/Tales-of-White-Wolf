@@ -1,8 +1,11 @@
+package Room;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import Puzzle.Puzzles;
 
 public class Room {
 	

@@ -1,3 +1,4 @@
+package Puzzle;
 
 public class LeverSystemPuzzle extends Puzzles {
 	

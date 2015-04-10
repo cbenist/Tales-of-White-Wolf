@@ -1,3 +1,4 @@
+package Puzzle;
 
 public class LockedDoor_CodePuzzle extends Puzzles 
 {
