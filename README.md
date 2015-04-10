@@ -17,6 +17,11 @@ Coding Standards
 *@param parameter
 */
 
+BracketConfiguration{
+
+Open Bracket on same line as method, class name
+}
+
 public, private, protected attributes as appropriate
 }
 
