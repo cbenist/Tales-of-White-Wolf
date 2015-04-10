@@ -17,5 +17,15 @@ package Item;
  */
 public class Item 
 {
-	
+    private String itemName;
+
+    public Item(String itemName)
+    {
+        this.itemName = itemName;
+    }
+
+    public Item()
+    {
+        this.itemName="";
+    }
 }

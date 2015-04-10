@@ -3,18 +3,18 @@ package CharacterC;
 import java.util.ArrayList;
 
 public class CharacterC {
-    private List<Item> inventory;
+    private ArrayList<Item.Item> inventory;
 
     private String characterName;
 
     private int characterLocation;
 
-    private Item equippedItem;
+    private Item.Item equippedItem;
 
     private int characterStrength;
 
-    public Character(String name) {
-        this.inventory = new ArrayList<Item>();
+    public CharacterC(String name) {
+        this.inventory = new ArrayList<Item.Item>();
         this.characterName = name;
         this.characterLocation = 0;
         this.equippedItem = null;
@@ -22,11 +22,11 @@ public class CharacterC {
 
     }
 
-    public List<Item> getInventory() {
+    public ArrayList<Item.Item> getInventory() {
         return inventory;
     }
 
-    public void setInventory(List<Item> inventory) {
+    public void setInventory(ArrayList<Item.Item> inventory) {
         this.inventory = inventory;
     }
 
@@ -46,11 +46,11 @@ public class CharacterC {
         this.characterLocation = characterLocation;
     }
 
-    public Item getEquippedItem() {
+    public Item.Item getEquippedItem() {
         return equippedItem;
     }
 
-    public void setEquippedItem(Item equippedItem) {
+    public void setEquippedItem(Item.Item equippedItem) {
         this.equippedItem = equippedItem;
     }
 

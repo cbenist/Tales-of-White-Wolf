@@ -19,17 +19,18 @@ public class Monster
 {
 	private double health = 0.0;
 	private boolean hasItem = false;
-	private Item i;
+	private Item.Item i;
 	private int currentDifficulty = 0;
 	private String monsterName = "";
+    private boolean monsterDefeated=false;
 	
-	public Monster(double health1, boolean hasItem1, int cd, String monName, Item i)
+	public Monster(double health, boolean hasItem, int cd, String monName, Item.Item item)
 	{
-		this.health = health1;
-		this.hasItem = hasItem1;
+		this.health = health;
+		this.hasItem = hasItem;
 		this.currentDifficulty = cd;
 		this.monsterName = monName;
-		this.i = i;
+		this.i = item;
 		
 	}
 	
@@ -54,10 +55,14 @@ public class Monster
 	
 	public boolean onMonsterDeath(boolean hasItem)
 	{
-		if(hasItem)
+        boolean value=false;
+		this.monsterDefeated=true;
+        if(hasItem)
 		{
 			roomItemList.add(this.i);
+            value=true;
 		}
+        return value;
 	}
 
 	public int getCurrentDifficulty() 
