@@ -1,9 +1,18 @@
 package Puzzle;
 
+
 import java.util.Random;
 
-/**
- * Created by Colin on 4/10/2015.
+/**Class: TrappedChestPuzzle
+ * @author Rodny Joseph
+ * @version 1.0
+ * Course : ITEC 3860 Spring 2015
+ * Written: April 1 2015
+ *
+ * This class � This class has the methods to generate rooms and keys for a puzzle
+ *
+ * Purpose: � This class will be a puzzle that user can choose between keys and the right key
+ * opens correct door
  */
 public class TrappedChestPuzzle extends Puzzle
 {
@@ -46,4 +55,7 @@ public class TrappedChestPuzzle extends Puzzle
             return "Try Again:";
         }
     }
+
+
+
 }

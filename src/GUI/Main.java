@@ -2,9 +2,16 @@ package GUI;
 
 /**
  * Created by Colin on 3/29/2015.
+ * version 1.0
+ * Course ITEC 3860 Spring 2015
+ *
+ *The Purpose of this class is to be the User interface to the game
+ *
+ * This class calls the other classes to do things as needed
  */
 import CharacterC.CharacterC;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -82,7 +89,7 @@ public class Main extends Application {
         HBox creationMenu = new HBox(15);
         creationMenu.getChildren().addAll(characterLeft, characterRight);
         creationMenu.setAlignment(Pos.BOTTOM_CENTER);
-        creationMenu.setVisible(false);
+        creationMenu.setVisible(true);
 
         //game interaction GUI
         VBox inputOutputVB = new VBox(15);
@@ -93,7 +100,7 @@ public class Main extends Application {
 
         HBox gameScreen = new HBox(15);
         gameScreen.getChildren().addAll(inputOutputVB, enemyInventoryVB);
-        gameScreen.setVisible(true);
+        gameScreen.setVisible(false);
 
         //stackpane to switch from character creation to game interaction GUIs
         StackPane primaryStackPane = new StackPane();
@@ -135,10 +142,11 @@ public class Main extends Application {
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("help"))
                         {
-
+                            //get hints from puzzles and rooms
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("move"))
                         {
+                            //call movement methods
                             if(inputText.split(" ")[1].equalsIgnoreCase("North") || inputText.split(" ")[1].equalsIgnoreCase("N"))
                             {
                                 outputTA.appendText("You head North...\n");
@@ -151,15 +159,27 @@ public class Main extends Application {
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("attack"))
                         {
-
+                            //get character attack and health and monster attack and health
+                            //change the health values based on attack values
                         }
                         else
                         {
+                            //catch all for misspellings and invalid commands
                             outputTA.appendText("That is not a valid command. Type \"commands\" to find a list of commands\n");
                         }
                     }
 
                 }
+            }
+        });
+
+        createCharacter.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent ae) {
+                //create character save data
+                CharacterC character = new CharacterC(characterFileName.getText());
+
+                //
             }
         });
     }
@@ -168,7 +188,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        CharacterC character = new CharacterC("default Name");
+        //start GUI
         launch(args);
     }
 }

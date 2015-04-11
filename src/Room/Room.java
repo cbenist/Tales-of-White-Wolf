@@ -39,7 +39,7 @@ public class Room
 
     /**
      * addMonster Method
-     * @param m
+     * @param monster
      */
     //Sets the puzzle name
     //Add a Monster
@@ -50,7 +50,7 @@ public class Room
 
     /**
      * addItem Method
-     * @param i
+     * @param item
      */
     //Sets the puzzle name
     //Add an Item
@@ -61,55 +61,64 @@ public class Room
 
     /**
      * addPuzzle Method
-     * @param p
+     * @param puzzle
      */
     //Sets the puzzle name
     //Add an Puzzle
     public void addPuzzle(Puzzle puzzle)
+
     {
         puzzleList.add(puzzle);
-    }
-
-    /**
-     * setMoveDirection Method
-     * @param direction
-     */
-    // sets the derection
-    public String getMoveDirection() {
-        return moveDirection;
     }
 
     /**
      * getDirection Method
      *
      */
-    //gets  direction
-    public void setMoveDirection(String moveDirection) {
+     //gets  direction
+    public String getMoveDirection()
+    {
+        return moveDirection;
+    }
+
+    /**
+     * setMoveDirection Method
+     * @param moveDirection
+     */
+    // sets the direction
+    public void setMoveDirection(String moveDirection)
+    {
         this.moveDirection = moveDirection;
     }
 
 
-    public double getMonsterSpawnChance() {
+    public double getMonsterSpawnChance()
+    {
         return monsterSpawnChance;
     }
 
-    public void setMonsterSpawnChance(double monsterSpawnChance) {
+    public void setMonsterSpawnChance(double monsterSpawnChance)
+    {
         this.monsterSpawnChance = monsterSpawnChance;
     }
 
-    public double getPuzzleSpawnChance() {
+    public double getPuzzleSpawnChance()
+    {
         return puzzleSpawnChance;
     }
 
-    public void setPuzzleSpawnChance(double puzzleSpawnChance) {
+    public void setPuzzleSpawnChance(double puzzleSpawnChance)
+    {
         this.puzzleSpawnChance = puzzleSpawnChance;
     }
 
-    public double getItemSpawnChance() {
+    public double getItemSpawnChance()
+    {
         return itemSpawnChance;
     }
 
-    public void setItemSpawnChance(double itemSpawnChance) {
+    public void setItemSpawnChance(double itemSpawnChance)
+    {
         this.itemSpawnChance = itemSpawnChance;
     }
 

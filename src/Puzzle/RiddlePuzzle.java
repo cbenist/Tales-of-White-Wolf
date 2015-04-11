@@ -1,10 +1,19 @@
 package Puzzle;
 
+
 import java.util.Random;
 
-/**
- * Created by Colin on 4/10/2015.
+/**Class: RiddlePuzzle
+ * @author Rodny Joseph
+ * @version 1.0
+ * Course : ITEC 3860 Spring 2015
+ * Written: April 1 2015
+ *
+ * This class � This class has the methods to generate a riddle.
+ *
+ * Purpose: � This class generate a riddle that the user will have to solve to continue
  */
+
 public class RiddlePuzzle extends Puzzle
 {
     private String riddleAnswer;
@@ -28,5 +37,11 @@ public class RiddlePuzzle extends Puzzle
         generateRiddle = riddles[count];
 
     }
+
+
+
+
+
+
 
 }
