@@ -3,9 +3,7 @@ package Puzzle;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Created by Colin on 4/10/2015.
- */
+
 public class MultipleDoorPuzzle extends Puzzle
 {
     Random rand;

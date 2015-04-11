@@ -1,9 +1,8 @@
 package Puzzle;
 
-/**
- * Created by Colin on 4/10/2015.
- */
-public class DecryptionPuzzle extends Puzzle {
+
+public class DecryptionPuzzle extends Puzzle
+{
 
     private String anagram;
 
