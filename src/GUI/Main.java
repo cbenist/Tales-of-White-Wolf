@@ -10,6 +10,8 @@ package GUI;
  * This class calls the other classes to do things as needed
  */
 import CharacterC.CharacterC;
+import Item.Item;
+import Room.Room;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,12 +30,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 public class Main extends Application {
 
     String inputText;
+    CharacterC character;
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(final Stage primaryStage) throws Exception {
 
         //declare the various areas of the gui
 
@@ -86,7 +91,7 @@ public class Main extends Application {
         characterRight.getChildren().addAll(characterFilePassword, getCharacter);
         characterRight.setAlignment(Pos.CENTER_LEFT);
 
-        HBox creationMenu = new HBox(15);
+        final HBox creationMenu = new HBox(15);
         creationMenu.getChildren().addAll(characterLeft, characterRight);
         creationMenu.setAlignment(Pos.BOTTOM_CENTER);
         creationMenu.setVisible(true);
@@ -98,7 +103,7 @@ public class Main extends Application {
         VBox enemyInventoryVB = new VBox(15);
         enemyInventoryVB.getChildren().addAll(enemyTA, inventoryTA);
 
-        HBox gameScreen = new HBox(15);
+        final HBox gameScreen = new HBox(15);
         gameScreen.getChildren().addAll(inputOutputVB, enemyInventoryVB);
         gameScreen.setVisible(false);
 
@@ -137,19 +142,24 @@ public class Main extends Application {
                         //take the input and compare it to a list of commands
                         if(inputText.split(" ")[0].equalsIgnoreCase("commands"))
                         {
+                            System.out.println("commands typed");
                             outputTA.appendText("Commands: help   move   equip   search   take   drop   attack\n");
-                            outputTA.appendText("save   exit(to menu while in game//leave game while in menu)   load   ");
+                            outputTA.appendText("save   exit(leaves game)   load   directions   menu\n");
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("help"))
                         {
                             //get hints from puzzles and rooms
+                            //outputTA.appendText(roomList[character.currentLocation].getHelp());
+                            System.out.println("help typed");
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("move"))
                         {
+                            System.out.println("move typed");
                             //call movement methods
                             if(inputText.split(" ")[1].equalsIgnoreCase("North") || inputText.split(" ")[1].equalsIgnoreCase("N"))
                             {
                                 outputTA.appendText("You head North...\n");
+                                //change enemy list to reflect current room.
 
                             }
                             else
@@ -159,11 +169,101 @@ public class Main extends Application {
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("attack"))
                         {
+                            System.out.println("attack typed");
                             //get character attack and health and monster attack and health
                             //change the health values based on attack values
                         }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("take"))
+                        {
+                            System.out.println("take typed");
+                            //check if item exists in the room
+                            if(inputText.split(" ")[1].equalsIgnoreCase(null))
+                            {
+
+                                System.out.println("Successful take to inventory.");
+                                //character.inventory.add(null);
+                            }
+                            else
+                            {
+                                System.out.println("item not added to inventory.");
+                                outputTA.appendText("That item is not in this room.\n");
+                            }
+                        }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("directions"))
+                        {
+                            System.out.println("directions typed");
+                            //get the directions of the current room
+                            //outputTA.appendText(roomList[character.currentLocation].getMoveDirection());
+                        }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("save"))
+                        {
+                            System.out.println("saved typed");
+                            //initiate save
+                            outputTA.appendText("This feature is currently a WIP and is unavailable at this time.");
+                        }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("exit"))
+                        {
+                            System.out.println("exit typed");
+                            if(inputText.split(" ").length<2)
+                            {
+                                outputTA.appendText("Are you sure you want to exit? Any unsaved progress will be lost.\n");
+                                outputTA.appendText("To exit type \"exit yes\" to save and exit type \"exit save\"\n");
+                            }
+                            else if(inputText.split(" ")[1].equalsIgnoreCase("save"))
+                            {
+                                System.out.println("save and exit");
+                                //initiate save
+
+                                //exit game
+                                primaryStage.close();
+                            }
+                            else if(inputText.split(" ")[1].equalsIgnoreCase("yes"))
+                            {
+                                System.out.println("exit confirmed");
+                                //exit game
+                                primaryStage.close();
+                            }
+                            else
+                            {
+                                System.out.println("exit gibberish");
+                                outputTA.appendText("That wasn't an option for exit\n");
+                            }
+                        }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("search"))
+                        {
+                            System.out.println("search typed");
+                            outputTA.appendText("While we're glad that you're clever enough to search for the unknown,\n");
+                            outputTA.appendText("this feature is not yet implemented.\n");
+                        }
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("menu"))
+                        {
+                            System.out.println("menu typed");
+                            if(inputText.split(" ").length<2)
+                            {
+                                outputTA.appendText("Warning any unsaved progress will be lost.\n");
+                                outputTA.appendText("To return to menu type \"menu yes\" to continue with your current" +
+                                        " game type a valid command\n");
+                            }
+                            else if(inputText.split(" ")[1].equalsIgnoreCase("yes"))
+                            {
+                                System.out.println("menu confirmed");
+
+                                //switch to menu
+                                gameScreen.setVisible(false);
+                                creationMenu.setVisible(true);
+
+                                //clear outputTA to prevent inter-game dialogue
+                                outputTA.clear();
+
+                            }
+                            else
+                            {
+                                outputTA.appendText("That is not a valid menu command.\n");
+                            }
+                        }
                         else
                         {
+                            System.out.println("unknown typed");
                             //catch all for misspellings and invalid commands
                             outputTA.appendText("That is not a valid command. Type \"commands\" to find a list of commands\n");
                         }
@@ -177,9 +277,38 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent ae) {
                 //create character save data
-                CharacterC character = new CharacterC(characterFileName.getText());
+                character = new CharacterC(characterFileName.getText());
 
-                //
+                ArrayList<Room> roomList = new ArrayList<Room>();
+
+                //give story info
+                outputTA.appendText("Welcome, " + character.getCharacterName() + " to the land of \n");
+                outputTA.appendText("This land has long awaited the arrival of a true hero.\n");
+                outputTA.appendText("The land has been pillaged by a dragon for the past three harvests.\n");
+                outputTA.appendText("yatta yatta yatta... plot thickens... So will you save us hero?\n");
+                outputTA.appendText("To begin your journey, speak to the bartender. His name is \"Commands\".\n");
+                outputTA.appendText("---------------------------------------------------------------\n");
+
+                //switch to interaction GUI
+                creationMenu.setVisible(false);
+                gameScreen.setVisible(true);
+            }
+        });
+
+        getCharacter.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent actionEvent)
+            {
+                character = new CharacterC(characterFileName.getText());
+                //retrieve data from file
+
+                //switch to game screen
+                creationMenu.setVisible(false);
+                gameScreen.setVisible(true);
+
+                outputTA.appendText("This feature is currently a WIP and is unavailable at this time.\n");
+                outputTA.appendText("Type \"menu\" to return to character creation.\n");
             }
         });
     }

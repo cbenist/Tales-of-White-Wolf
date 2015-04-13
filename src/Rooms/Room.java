@@ -6,18 +6,19 @@ package Rooms;
  * Course : ITEC 3860 Spring 2015
  * Written: April 1 2015
  * 
- * This class – The Room class contains methods that sets directions, add to Arraylists and generate
+ * This class ï¿½ The Room class contains methods that sets directions, add to Arraylists and generate
  * and object for the other classes
  * 
- * Purpose: – This class will have the items, monsters, puzzles, and other object that the 
+ * Purpose: ï¿½ This class will have the items, monsters, puzzles, and other object that the 
  * rooms will contain.
  */
+import Puzzle.Puzzle;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import Puzzle.Puzzles;
 
 public class Room {
 	
@@ -28,13 +29,13 @@ public class Room {
 
 	
 	//ArrayList of Monster Class
-	List<Monster> monsterList = new ArrayList<Monster>();
+	List<Monster.Monster> monsterList = new ArrayList<Monster.Monster>();
 
 	//ArrayList of Item Class
-	List<Item> itemList = new ArrayList<Item>();
+	List<Item.Item> itemList = new ArrayList<Item.Item>();
 	
 	//ArrayList of Puzzle Class
-	List<Puzzles> puzzleList = new ArrayList<Puzzles>();
+	List<Puzzle> puzzleList = new ArrayList<Puzzle>();
 
 	/**
 	 * addMonster Method
@@ -42,7 +43,7 @@ public class Room {
 	 */
 	//Sets the puzzle name
 	//Add a Monster
-	public void addMonster (Monster m) 
+	public void addMonster (Monster.Monster m)
 	{
 		monsterList.add(m);
 	}	
@@ -53,7 +54,7 @@ public class Room {
 	 */
 	//Sets the puzzle name
 	//Add an Item
-	public void addItem (Item i) 
+	public void addItem (Item.Item i)
 	{
 		itemList.add(i);
 	}
@@ -64,7 +65,7 @@ public class Room {
 	 */
 	//Sets the puzzle name
 	//Add an Puzzle
-	public void addPuzzle (Puzzles p) 
+	public void addPuzzle (Puzzle p)
 	{
 		puzzleList.add(p);
 	}

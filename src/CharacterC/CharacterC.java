@@ -7,7 +7,7 @@ package CharacterC;
  *
  *The Purpose of this class is to be the base for saving and to refer to the player by the rest of the game
  *
- * This class is the CharacterClass. It is called CharacterC because Character is a protected class
+ * This class is the CharacterClass. It is called CharacterC because the Class 'Character' is a protected class
  */
 import Item.Item;
 import java.util.ArrayList;
@@ -24,11 +24,22 @@ public class CharacterC
     //character location refers to the room the character is currently in
     private int characterLocation;
 
-    //equipped item refers only to weapons
+    //equipped item changes the character strength value
     private Item equippedItem;
 
     //character strength gives the players attack value. it is modified by the weapon the player has equipped
     private int characterStrength;
+
+    //character health gives the player a way to fail
+    private int characterHealth;
+
+    public int getCharacterHealth() {
+        return characterHealth;
+    }
+
+    public void setCharacterHealth(int characterHealth) {
+        this.characterHealth = characterHealth;
+    }
 
     //character construction
     public CharacterC(String name)
@@ -38,6 +49,8 @@ public class CharacterC
         this.characterLocation = 0;
         this.equippedItem = null;
         this.characterStrength = 2;
+        this.characterHealth = 100;
+
 
     }
 
@@ -104,6 +117,14 @@ public class CharacterC
 
     public void setCharacterStrength(int characterStrength)
     {
-        this.characterStrength = characterStrength;
+        if(equippedItem == null)
+        {
+            this.characterStrength = characterStrength;
+        }
+        else
+        {
+            this.characterStrength = characterStrength
+        /*+ equippedItem.getModifier()*/;
+        }
     }
 }
