@@ -37,6 +37,7 @@ public class Main extends Application {
 
     String inputText;
     CharacterC character;
+    ArrayList<Room> roomList = new ArrayList<Room>();
     @Override
     public void start(final Stage primaryStage) throws Exception {
 
@@ -149,40 +150,66 @@ public class Main extends Application {
                         else if(inputText.split(" ")[0].equalsIgnoreCase("help"))
                         {
                             //get hints from puzzles and rooms
-                            //outputTA.appendText(roomList[character.currentLocation].getHelp());
+                            //outputTA.appendText(roomList.get(character.getCharacterLocation).getHelp());
                             System.out.println("help typed");
+                            outputTA.appendText("This feature is not implemented yet.");
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("move"))
                         {
                             System.out.println("move typed");
+
                             //call movement methods
-                            if(inputText.split(" ")[1].equalsIgnoreCase("North") || inputText.split(" ")[1].equalsIgnoreCase("N"))
+                            if(inputText.split(" ").length < 2)
                             {
-                                outputTA.appendText("You head North...\n");
-                                //change enemy list to reflect current room.
+                                outputTA.appendText("you didn't type a direction");
 
                             }
+                            /*else if(directionList.contains(inputText.split(" ")[1]))
+                            {
+                                outputTA.appendText("You head " + inputText.split(" ")[1] +"...\n");
+                                //change enemy list to reflect current room.
+                                enemyTA.clear();
+                                monsterList = roomList.get(character.getCharacterLocation()).getMonsterList();
+                                for(Monster m: monsterList)
+                                {
+                                    enemyTA.appendText(m.getName() + "\n");
+                                    enemyTA.appendText(m.getHealth() + "\n");
+                                }
+
+                            }*/
                             else
                             {
                                 outputTA.appendText("There is no path leading that direction.\n");
                             }
                         }
-                        else if(inputText.split(" ")[0].equalsIgnoreCase("attack"))
-                        {
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("attack")) {
                             System.out.println("attack typed");
                             //get character attack and health and monster attack and health
                             //change the health values based on attack values
+
+                            /*monsterList[0].setHealth(monsterList[0].getHealth - character.getCharacterStrength()/2);
+                            if(monsterList[0].isAlive())
+                            {
+                            character.setCharacterHealth(character.getCharacterHealth() - monsterList[0].getStrength()/3);
+                            }*/
+
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("take"))
                         {
                             System.out.println("take typed");
                             //check if item exists in the room
-                            if(inputText.split(" ")[1].equalsIgnoreCase(null))
+                            if(inputText.split(" ").length<2)
                             {
 
                                 System.out.println("Successful take to inventory.");
-                                //character.inventory.add(null);
+                                outputTA.appendText("You haven't selected anything to take.");
+
                             }
+                            /*else if(inputText.split(" ")[1].equalsIgnoreCase(roomList.get(character.getCharacterLocation()).getItemList().get(0).getItemName()))
+                            {
+                                inventory.add(item);
+                                roomList.remove(item);
+                            }*/
                             else
                             {
                                 System.out.println("item not added to inventory.");
@@ -193,7 +220,7 @@ public class Main extends Application {
                         {
                             System.out.println("directions typed");
                             //get the directions of the current room
-                            //outputTA.appendText(roomList[character.currentLocation].getMoveDirection());
+                            //outputTA.appendText(roomList[character.getCharacterLocation].getMoveDirection());
                         }
                         else if(inputText.split(" ")[0].equalsIgnoreCase("save"))
                         {
@@ -282,7 +309,7 @@ public class Main extends Application {
                 ArrayList<Room> roomList = new ArrayList<Room>();
 
                 //give story info
-                outputTA.appendText("Welcome, " + character.getCharacterName() + " to the land of \n");
+                outputTA.appendText("Welcome, " + character.getCharacterName() + " to the land of Wolvaria\n");
                 outputTA.appendText("This land has long awaited the arrival of a true hero.\n");
                 outputTA.appendText("The land has been pillaged by a dragon for the past three harvests.\n");
                 outputTA.appendText("yatta yatta yatta... plot thickens... So will you save us hero?\n");
