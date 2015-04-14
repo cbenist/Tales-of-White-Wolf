@@ -1,34 +1,29 @@
 package Room;
-import Room;
 
-/**Class: CityRoom
+/**
+ * Class: CityRoom
+ * 
  * @author Rodny Joseph
- * @version 1.0 
- * Course : ITEC 3860 Spring 2015
- * Written: Oct 11, 2012  
+ * @version 1.0 Course : ITEC 3860 Spring 2015 Written: April 1 2015
  * 
- * This class – The AddWeaponsRunnable class adds a randomly generated number
- * of weapons (from 0-4 inclusive) to a player
+ *          This class – The CityRoom class has the method to generate a monster
  * 
- * Purpose: – The class will run for as many iterations as the user provides for the parameter.
- * While it is running, it will call the addWeapons() method from Player that will add to the 
- * number of weapons that a player has, and then print a line stating the number of weapons 
- * added as well as the total number of weapons that a player has.
- * The method will only add something when the
- * ArrayList's size is less or equal to 5.
- * Then the program will sleep for the DELAY specified.
+ *          Purpose: – This class will generate a monster for the Room that is a
+ *          City implementation.
  */
-public class CityRoom extends Room 
-{
-	
-	public int generateRoomMosnter(int zone)
-	{
-		if(zone == 4 || zone == 5)
-		{
-		return 10;
-		}
-		else
+public class CityRoom extends Room {
+	/**
+	 * generateRoomMonster Method
+	 * 
+	 * @param zone
+	 */
+	// Generates monster and assigning it a percentage for a particular zone
+
+	public int generateRoomMosnter(int zone) {
+		if (zone == 4 || zone == 5) {
+			return 10;
+		} else
 			return 0;
 	}
-	
+
 }

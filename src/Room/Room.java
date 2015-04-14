@@ -1,5 +1,17 @@
 package Room;
 
+/**Class: Room
+ * @author Rodny Joseph
+ * @version 1.0 
+ * Course : ITEC 3860 Spring 2015
+ * Written: April 1 2015
+ * 
+ * This class – The Room class contains methods that sets directions, add to Arraylists and generate
+ * and object for the other classes
+ * 
+ * Purpose: – This class will have the items, monsters, puzzles, and other object that the 
+ * rooms will contain.
+ */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,78 +20,108 @@ import java.util.Scanner;
 import Puzzle.Puzzles;
 
 public class Room {
-	
-	// "No Monsters" or "No Puzzle" or "No Items" variables 
+
+	// "No Monsters" or "No Puzzle" or "No Items" variables
 	String noMonster = "No Monsters";
 	String noPuzzle = "No Puzzles";
 	String noItem = "No Items";
 
-	
-	//ArrayList of Monster Class
+	// ArrayList of Monster Class
 	List<Monster> monsterList = new ArrayList<Monster>();
 
-	//ArrayList of Item Class
+	// ArrayList of Item Class
 	List<Item> itemList = new ArrayList<Item>();
-	
-	//ArrayList of Puzzle Class
+
+	// ArrayList of Puzzle Class
 	List<Puzzles> puzzleList = new ArrayList<Puzzles>();
 
-	
-	//Add a Monster
-	public void addMonster (Monster m) 
-	{
+	/**
+	 * addMonster Method
+	 * 
+	 * @param m
+	 */
+	// Sets the puzzle name
+	// Add a Monster
+	public void addMonster(Monster m) {
 		monsterList.add(m);
-	}	
-	
-	//Add an Item
-	public void addItem (Item i) 
-	{
+	}
+
+	/**
+	 * addItem Method
+	 * 
+	 * @param i
+	 */
+	// Sets the puzzle name
+	// Add an Item
+	public void addItem(Item i) {
 		itemList.add(i);
 	}
-	
-	//Add an Puzzle
-	public void addPuzzle (Puzzles p) 
-	{
+
+	/**
+	 * addPuzzle Method
+	 * 
+	 * @param p
+	 */
+	// Sets the puzzle name
+	// Add an Puzzle
+	public void addPuzzle(Puzzles p) {
 		puzzleList.add(p);
 	}
-	
+
 	String moveDirection;
 	double monsterSpawnChance;
 	double puzzleSpawnChance;
 	double itemSpawnChance;
 	Random ran;
 
-	
-	public void setMoveDirection (String direction)
-	{
+	/**
+	 * setMoveDirection Method
+	 * 
+	 * @param direction
+	 */
+	// sets the derection
+	public void setMoveDirection(String direction) {
 		moveDirection = direction;
 	}
-	
-	public String getDirection()
-	{
-		
+
+	/**
+	 * getDirection Method
+	 * 
+	 */
+	// gets direction
+	public String getDirection() {
+
 		return moveDirection;
 	}
-	
-	public String searchRoom(String puzzleName, String monsterName)
-	{
-		
-		return null;
-	}
-	
-	public void generateRoomMonster(double monsterSpawnChance)
-	{
+
+	/**
+	 * generateRoomMonster Method
+	 * 
+	 * @param monsterSpawnChance
+	 */
+	// generate monster spawn chance
+	public void generateRoomMonster(double monsterSpawnChance) {
 		this.monsterSpawnChance = monsterSpawnChance;
 	}
-	
-	public void generateRoomPuzzle(double puzzleSpawnChance)
-	{
+
+	/**
+	 * generateRoomPuzzle Method
+	 * 
+	 * @param puzzleSpawnChance
+	 */
+	// generate Puzzle spawn chance
+	public void generateRoomPuzzle(double puzzleSpawnChance) {
 		this.puzzleSpawnChance = puzzleSpawnChance;
 	}
-	
-	public void generateRoomItems(double itemSpawnChance)
-	{
+
+	/**
+	 * generateRoomItem Method
+	 * 
+	 * @param itemSpawnChance
+	 */
+	// generate Item spawn chance
+	public void generateRoomItems(double itemSpawnChance) {
 		this.itemSpawnChance = itemSpawnChance;
 	}
-	
+
 }

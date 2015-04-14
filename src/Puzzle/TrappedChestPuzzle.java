@@ -1,6 +1,19 @@
 package Puzzle;
+
 import java.util.Random;
 
+/**
+ * Class: TrappedChestPuzzle
+ * 
+ * @author Rodny Joseph
+ * @version 1.0 Course : ITEC 3860 Spring 2015 Written: April 1 2015
+ * 
+ *          This class – This class has the methods to generate rooms and keys
+ *          for a puzzle
+ * 
+ *          Purpose: – This class will be a puzzle that user can choose between
+ *          keys and the right key opens correct door
+ */
 public class TrappedChestPuzzle extends Puzzles {
 
 	Random rand = new Random();
@@ -9,78 +22,38 @@ public class TrappedChestPuzzle extends Puzzles {
 	String bothLeft = null;
 	String rightLeft = null;
 	String leftRight = null;
-	
-	public void setKey(String key){
-		if(key == "Both Right"){
+
+	/**
+	 * setKey Method
+	 * 
+	 * @param key
+	 */
+	// Sets the key
+	public void setKey(String key) {
+		if (key == "Both Right") {
 			bothRight = key;
-			
-		}
-		else if (key == "Both Left")
-		{
+
+		} else if (key == "Both Left") {
 			bothLeft = key;
-			
-		}
-		else if (key == "Left Right")
-		{
+
+		} else if (key == "Left Right") {
 			leftRight = key;
-		}
-		else if (key == "Right Left")
-		{
+		} else if (key == "Right Left") {
 			rightLeft = key;
 		}
 	}
-	
-	public String getKey(){
+
+	/**
+	 * getKey Method
+	 */
+	// Get the key
+	public String getKey() {
 		count = 1 + rand.nextInt(4);
-		if (bothRight == null){
-		return bothRight;}
-		else
-		{	
+		if (bothRight == null) {
+			return bothRight;
+		} else {
 			return "Try Again:";
 		}
 	}
-	
-/*	public String turnBothRight(String bothRight)
-	{
-		count = 1 + rand.nextInt(4);
-		if (count == 1){
-		return bothRight;}
-		else
-		{	
-			return "Try Again:";
-		}
-	}
-	public String turnBothLeft(String bothLeft)
-	{
-		count = 1 + rand.nextInt(4);
-		if (count == 2 ){
-		return bothLeft;}
-		else
-		{	
-			return "Try Again:";
-		}
-	}
-	public String leftRight(String leftRight)
-	{
-		count = 1 + rand.nextInt(4);
-		if (count == 3 ){
-		return leftRight;}
-		else
-		{	
-			return "Try Again:";
-		}
-	}
-	public String rightLeft(String rightLeft)
-	{
-		count = 1 + rand.nextInt(4);
-		if (count == 4 ){
-		return rightLeft;}
-		else
-		{	
-			return "Try Again:";
-		}
-		
-	}
-	*/
-	
+
 }
