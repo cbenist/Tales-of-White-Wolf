@@ -13,7 +13,7 @@ package Puzzle;
 
 public class DecryptionPuzzle extends Puzzles {
 
-	String anagram;
+	String anagram = null;
 
 	/**
 	 * anagram Method
@@ -21,7 +21,7 @@ public class DecryptionPuzzle extends Puzzles {
 	 * @param anagram
 	 */
 	// This method returns a anagram
-	public String anagram(String anagram) {
+	public String returnAnagram(String anagram) {
 		this.anagram = anagram;
 		return this.anagram;
 	}

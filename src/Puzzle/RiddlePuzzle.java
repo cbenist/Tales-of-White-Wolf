@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class RiddlePuzzle extends Puzzles {
 
-	private String riddleAnswer;
+	private String riddleAnswer = null;
 	String generateRiddle;
 	int count = 0;
 	String[] riddles;

@@ -23,7 +23,7 @@ public class MultipleDoorPuzzle {
 	 * emptyRoom Method
 	 */
 	// Finds the correct room
-	public void emptyRoom() {
+	public void returnCorrectRoom() {
 
 		rand = new Random();
 		scan = new Scanner(System.in);
