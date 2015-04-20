@@ -33,13 +33,7 @@ public class CharacterC
     //character health gives the player a way to fail
     private int characterHealth;
 
-    public int getCharacterHealth() {
-        return characterHealth;
-    }
 
-    public void setCharacterHealth(int characterHealth) {
-        this.characterHealth = characterHealth;
-    }
 
     //character construction
     public CharacterC(String name)
@@ -69,6 +63,16 @@ public class CharacterC
         }
     }
 
+
+    public int getCharacterHealth()
+    {
+        return characterHealth;
+    }
+
+    public void setCharacterHealth(int characterHealth)
+    {
+        this.characterHealth = characterHealth;
+    }
 
     public ArrayList<Item> getInventory()
     {

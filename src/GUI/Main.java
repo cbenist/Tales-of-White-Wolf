@@ -33,13 +33,15 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 
-public class Main extends Application {
+public class Main extends Application
+{
 
     String inputText;
     CharacterC character;
     ArrayList<Room> roomList = new ArrayList<Room>();
     @Override
-    public void start(final Stage primaryStage) throws Exception {
+    public void start(final Stage primaryStage) throws Exception
+    {
 
         //declare the various areas of the gui
 
@@ -140,6 +142,7 @@ public class Main extends Application {
                         outputTA.appendText(inputTF.getText() + "\n");
                         inputText = inputTF.getText();
                         inputTF.clear();
+
                         //take the input and compare it to a list of commands
                         if(inputText.split(" ")[0].equalsIgnoreCase("commands"))
                         {
@@ -147,6 +150,7 @@ public class Main extends Application {
                             outputTA.appendText("Commands: help   move   equip   search   take   drop   attack\n");
                             outputTA.appendText("save   exit(leaves game)   load   directions   menu\n");
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("help"))
                         {
                             //get hints from puzzles and rooms
@@ -154,6 +158,7 @@ public class Main extends Application {
                             System.out.println("help typed");
                             outputTA.appendText("This feature is not implemented yet.");
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("move"))
                         {
                             System.out.println("move typed");
@@ -164,6 +169,7 @@ public class Main extends Application {
                                 outputTA.appendText("you didn't type a direction");
 
                             }
+
                             /*else if(directionList.contains(inputText.split(" ")[1]))
                             {
                                 outputTA.appendText("You head " + inputText.split(" ")[1] +"...\n");
@@ -177,23 +183,27 @@ public class Main extends Application {
                                 }
 
                             }*/
+
                             else
                             {
                                 outputTA.appendText("There is no path leading that direction.\n");
                             }
                         }
-                        else if(inputText.split(" ")[0].equalsIgnoreCase("attack")) {
+
+                        else if(inputText.split(" ")[0].equalsIgnoreCase("attack"))
+                        {
                             System.out.println("attack typed");
                             //get character attack and health and monster attack and health
                             //change the health values based on attack values
 
-                            /*monsterList[0].setHealth(monsterList[0].getHealth - character.getCharacterStrength()/2);
+                            /*monsterList[0].setHealth(monsterList[0].getHealth - (character.getCharacterStrength()/2));
                             if(monsterList[0].isAlive())
                             {
-                            character.setCharacterHealth(character.getCharacterHealth() - monsterList[0].getStrength()/3);
+                            character.setCharacterHealth(character.getCharacterHealth() - (monsterList.get(0).getStrength()/3));
                             }*/
 
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("take"))
                         {
                             System.out.println("take typed");
@@ -205,29 +215,34 @@ public class Main extends Application {
                                 outputTA.appendText("You haven't selected anything to take.");
 
                             }
+
                             /*else if(inputText.split(" ")[1].equalsIgnoreCase(roomList.get(character.getCharacterLocation()).getItemList().get(0).getItemName()))
                             {
                                 inventory.add(item);
                                 roomList.remove(item);
                             }*/
+
                             else
                             {
                                 System.out.println("item not added to inventory.");
                                 outputTA.appendText("That item is not in this room.\n");
                             }
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("directions"))
                         {
                             System.out.println("directions typed");
                             //get the directions of the current room
                             //outputTA.appendText(roomList[character.getCharacterLocation].getMoveDirection());
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("save"))
                         {
                             System.out.println("saved typed");
                             //initiate save
                             outputTA.appendText("This feature is currently a WIP and is unavailable at this time.");
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("exit"))
                         {
                             System.out.println("exit typed");
@@ -236,6 +251,7 @@ public class Main extends Application {
                                 outputTA.appendText("Are you sure you want to exit? Any unsaved progress will be lost.\n");
                                 outputTA.appendText("To exit type \"exit yes\" to save and exit type \"exit save\"\n");
                             }
+
                             else if(inputText.split(" ")[1].equalsIgnoreCase("save"))
                             {
                                 System.out.println("save and exit");
@@ -244,24 +260,28 @@ public class Main extends Application {
                                 //exit game
                                 primaryStage.close();
                             }
+
                             else if(inputText.split(" ")[1].equalsIgnoreCase("yes"))
                             {
                                 System.out.println("exit confirmed");
                                 //exit game
                                 primaryStage.close();
                             }
+
                             else
                             {
                                 System.out.println("exit gibberish");
                                 outputTA.appendText("That wasn't an option for exit\n");
                             }
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("search"))
                         {
                             System.out.println("search typed");
                             outputTA.appendText("While we're glad that you're clever enough to search for the unknown,\n");
                             outputTA.appendText("this feature is not yet implemented.\n");
                         }
+
                         else if(inputText.split(" ")[0].equalsIgnoreCase("menu"))
                         {
                             System.out.println("menu typed");
@@ -271,6 +291,7 @@ public class Main extends Application {
                                 outputTA.appendText("To return to menu type \"menu yes\" to continue with your current" +
                                         " game type a valid command\n");
                             }
+
                             else if(inputText.split(" ")[1].equalsIgnoreCase("yes"))
                             {
                                 System.out.println("menu confirmed");
@@ -283,11 +304,13 @@ public class Main extends Application {
                                 outputTA.clear();
 
                             }
+
                             else
                             {
                                 outputTA.appendText("That is not a valid menu command.\n");
                             }
                         }
+
                         else
                         {
                             System.out.println("unknown typed");
@@ -300,9 +323,11 @@ public class Main extends Application {
             }
         });
 
-        createCharacter.setOnAction(new EventHandler<ActionEvent>() {
+        createCharacter.setOnAction(new EventHandler<ActionEvent>()
+        {
             @Override
-            public void handle(ActionEvent ae) {
+            public void handle(ActionEvent ae)
+            {
                 //create character save data
                 character = new CharacterC(characterFileName.getText());
 
