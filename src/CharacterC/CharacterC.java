@@ -11,12 +11,13 @@ package CharacterC;
  */
 import Item.Item;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CharacterC
 {
 
     //create character inventory
-    private ArrayList<Item> inventory;
+    private HashMap<String, Item> inventory;
 
     //character name is used for saving and any story line at the beginning
     private String characterName;
@@ -34,15 +35,28 @@ public class CharacterC
     private int characterHealth;
 
 
+    private Item item = new Item("Fist", "Weapon", 0);
 
     //character construction
     public CharacterC(String name)
     {
-        this.inventory = new ArrayList<Item>();
+        this.inventory = new HashMap<String, Item>();
         this.characterName = name;
         this.characterLocation = 0;
-        this.equippedItem = null;
-        this.characterStrength = 2;
+        this.equippedItem = this.item;
+        this.characterStrength = 5;
+        this.characterHealth = 100;
+
+
+    }
+
+    public CharacterC()
+    {
+        this.inventory = new HashMap<String, Item>();
+        this.characterName = "";
+        this.characterLocation = 0;
+        this.equippedItem = this.item;
+        this.characterStrength = 5;
         this.characterHealth = 100;
 
 
@@ -58,7 +72,7 @@ public class CharacterC
         }
         else
         {
-            this.inventory.add(item);
+            this.inventory.put(item.getItemName(), item);
             return true;
         }
     }
@@ -74,12 +88,12 @@ public class CharacterC
         this.characterHealth = characterHealth;
     }
 
-    public ArrayList<Item> getInventory()
+    public HashMap<String, Item> getInventory()
     {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Item> inventory)
+    public void setInventory(HashMap<String, Item> inventory)
     {
         this.inventory = inventory;
     }
@@ -121,14 +135,6 @@ public class CharacterC
 
     public void setCharacterStrength(int characterStrength)
     {
-        if(equippedItem == null)
-        {
-            this.characterStrength = characterStrength;
-        }
-        else
-        {
-            this.characterStrength = characterStrength
-        /*+ equippedItem.getModifier()*/;
-        }
+        this.characterStrength = characterStrength;
     }
 }

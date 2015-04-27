@@ -18,16 +18,16 @@ package Item;
 public class Weapon extends Item
 {
 	private String weaponName;
-	private double damageValue;
+	private int damageValue;
 	
 	/**
 	 * The Weapon() default constructor
 	 * Contains the default values for the weapon name and the damage of the weapon
 	 */
-	public Weapon()
+	public Weapon(String name, int damageValue)
 	{
-		this.weaponName = "null";
-		damageValue = 0.0;
+		this.weaponName = name;
+		this.damageValue = damageValue;
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class Weapon extends Item
 	 * Method: getDamageValue
 	 * @return the degree of damage for its respective weapon
 	 */
-	public double getDamageValue()
+	public int getDamageValue()
 	{
 		return damageValue;
 	}
@@ -62,7 +62,7 @@ public class Weapon extends Item
 	 * Method: setDamageValue
 	 * @param damageValue the determined casualty factor 
 	 */
-	public void setDamageValue(double damageValue)
+	public void setDamageValue(int damageValue)
 	{
 		this.damageValue = damageValue;
 	}
