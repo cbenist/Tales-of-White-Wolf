@@ -23,23 +23,54 @@ public class Monster
 	private int currentDifficulty = 0;
 	private String monsterName = "";
     private boolean monsterDefeated=false;
-	
-	public Monster(double health, boolean hasItem, int cd, String monName, Item.Item item)
+    private boolean bossMonster;
+    private int monsterStrength;
+
+    public int getMonsterStrength() {
+        return monsterStrength;
+    }
+
+    public void setMonsterStrength(int monsterStrength) {
+        this.monsterStrength = monsterStrength;
+    }
+
+    public Monster(double health, boolean hasItem, int cd, String monName, Item.Item item, int monsterStrength)
 	{
 		this.health = health;
 		this.hasItem = hasItem;
 		this.currentDifficulty = cd;
 		this.monsterName = monName;
 		this.i = item;
+        this.monsterStrength = monsterStrength;
 		
 	}
-	
-	public Monster(double health1, boolean hasItem1, int cd, String monName)
+
+    public boolean isBossMonster() {
+        return bossMonster;
+    }
+
+    public void setBossMonster(boolean bossMonster) {
+        this.bossMonster = bossMonster;
+    }
+
+    public boolean isMonsterDefeated() {
+
+        return monsterDefeated;
+    }
+
+    public void setMonsterDefeated(boolean monsterDefeated) {
+        this.monsterDefeated = monsterDefeated;
+    }
+
+    public Monster(double health1, boolean hasItem1, int cd, String monName, boolean bossMonster, int monsterStrength)
 	{
 		this.health = health1;
 		this.hasItem = hasItem1;
 		this.currentDifficulty = cd;
 		this.monsterName = monName;
+        this.bossMonster = bossMonster;
+        this.monsterStrength = monsterStrength;
+
 		
 	}
 

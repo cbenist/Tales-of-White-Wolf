@@ -18,14 +18,46 @@ package Item;
 public class Item 
 {
     private String itemName;
+    private String type;
+    private int damage;
 
-    public Item(String itemName)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public Item(String itemName, String type, int damage)
     {
         this.itemName = itemName;
+        this.type = type;
+        this.damage = damage;
+
     }
 
     public Item()
     {
         this.itemName="";
     }
+
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+
 }

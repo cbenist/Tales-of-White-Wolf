@@ -1,18 +1,14 @@
 package Room;
 
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class CityRoom extends Room
 {
 
-    public double generateRoomMonster(int zone)
+    public CityRoom(int  roomNumber, String roomDescription, String type, Map<String, Integer> map, int monster)
     {
-        if(zone == 4 || zone == 5)
-        {
-            return 10.0;
-        }
-        else
-        {
-            return 0;
-        }
+        super(roomNumber, roomDescription, type, map, monster);
     }
 }

@@ -12,6 +12,7 @@ package Room;
  * rooms will contain.
  */
 
+import Item.Item;
 import Monster.Monster;
 import Puzzle.Puzzle;
 import java.util.*;
@@ -25,18 +26,143 @@ public class Room
     private String noItem = "No Items";
 
 
+    private int roomNumber;
+    private Set<String> directions;
     private String moveDirection;
-    private double monsterSpawnChance;
+    private String roomDescription;
+    private int monsterSpawnChance;
     private double puzzleSpawnChance;
     private double itemSpawnChance;
     Random ran;
+    private boolean visited;
+    private String type;
 
-    List<Monster> monsterList = new ArrayList<Monster>();
+    public boolean isVisited() {
+        return visited;
+    }
 
-    List<Item.Item> itemList = new ArrayList<Item.Item>();
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
 
-    List<Puzzle> puzzleList = new ArrayList<Puzzle>();
+    private Map<String, Integer> roomDirectionMap = new HashMap<String, Integer>() ;
 
+    private List<Monster> monsterList = new ArrayList<Monster>();
+
+    private HashMap<String, Item> itemList= new HashMap<String,  Item>();
+
+    private List<Puzzle> puzzleList = new ArrayList<Puzzle>();
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public Set<String> getDirections() {
+        return directions;
+    }
+
+    public void setDirections(Set<String> directions) {
+        this.directions = directions;
+    }
+
+    public String getValidDirections()
+    {
+        String value = " ";
+        for(String element: directions)
+        {
+            value = value + " " + element + ", ";
+        }
+
+        return value;
+    }
+
+    public String getRoomDescription() {
+        return roomDescription;
+    }
+
+    public void setRoomDescription(String roomDescription) {
+        this.roomDescription = roomDescription;
+    }
+
+    public List<Monster> getMonsterList() {
+        return monsterList;
+    }
+
+    public void setMonsterList(List<Monster> monsterList) {
+        this.monsterList = monsterList;
+    }
+
+    public HashMap<String, Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(HashMap<String, Item> itemList) {
+        this.itemList = itemList;
+    }
+
+    public List<Puzzle> getPuzzleList() {
+        return puzzleList;
+    }
+
+    public void setPuzzleList(List<Puzzle> puzzleList) {
+        this.puzzleList = puzzleList;
+    }
+
+    public Map<String, Integer> getRoomDirectionMap() {
+        return roomDirectionMap;
+    }
+
+    public void setRoomDirectionMap(Map<String, Integer> roomDirectionMap) {
+        this.roomDirectionMap = roomDirectionMap;
+    }
+
+    public Room(int  roomNumber, String roomDescription, String type, Map<String, Integer> map, int monsterSpawnChance)
+    {
+
+        this.roomNumber = roomNumber;
+        this.roomDescription = roomDescription;
+        this.roomDirectionMap.putAll(map);
+        this.directions = map.keySet();
+        this.monsterSpawnChance = monsterSpawnChance;
+        this.type = type;
+
+
+
+
+
+
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Room(int  roomNumber, String roomDescription, String type, Map<String, Integer> map, int monsterSpawnChance, Monster monster)
+    {
+
+        this.roomNumber = roomNumber;
+        this.roomDescription = roomDescription;
+        this.roomDirectionMap.putAll(map);
+        this.directions = map.keySet();
+        this.monsterSpawnChance = monsterSpawnChance;
+        this.monsterList.add(monster);
+        this.type=type;
+
+
+
+
+
+
+
+    }
     /**
      * addMonster Method
      * @param monster
@@ -54,9 +180,9 @@ public class Room
      */
     //Sets the puzzle name
     //Add an Item
-    public void addItem (Item.Item item)
+    public void addItem (Item item)
     {
-        itemList.add(item);
+        itemList.put(item.getItemName(), item);
     }
 
     /**
@@ -92,12 +218,12 @@ public class Room
     }
 
 
-    public double getMonsterSpawnChance()
+    public int getMonsterSpawnChance()
     {
         return monsterSpawnChance;
     }
 
-    public void setMonsterSpawnChance(double monsterSpawnChance)
+    public void setMonsterSpawnChance(int monsterSpawnChance)
     {
         this.monsterSpawnChance = monsterSpawnChance;
     }
@@ -127,7 +253,7 @@ public class Room
      * @param monsterSpawnChance
      */
     //generate monster spawn chance
-    public void generateRoomMonster(double monsterSpawnChance)
+    public void generateRoomMonster(int monsterSpawnChance)
     {
         this.monsterSpawnChance = monsterSpawnChance;
     }
