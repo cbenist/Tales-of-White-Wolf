@@ -347,6 +347,7 @@ public class Main extends Application
                                 inventoryTA.appendText("Name: " + character.getCharacterName() + "\n");
                                 inventoryTA.appendText("Health: " + character.getCharacterHealth() + "\n");
                                 inventoryTA.appendText("Strength: " + character.getCharacterStrength() + "\n");
+                                inventoryTA.appendText("Equipped Item: " + character.getEquippedItem().getItemName() + "\n");
 
                             }
 
